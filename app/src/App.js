@@ -27,7 +27,11 @@ class App extends Component {
   }
 
   render() {
-    return <UserCard {...this.state.user} />;
+    return (
+      <div className="App">
+        <UserCard {...this.state.user} />
+      </div>
+    );
   }
 }
 

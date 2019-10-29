@@ -10,7 +10,10 @@ class Followers extends Component {
       <>
         {this.followers() &&
           this.followers().map(follower => (
-            <div key={follower.id}>{follower.login}</div>
+            <div className="follower" key={follower.id}>
+              <img src={follower.avatar_url} alt="" />
+              <p>{follower.login}</p>
+            </div>
           ))}
       </>
     );

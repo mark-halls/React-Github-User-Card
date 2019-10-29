@@ -8,6 +8,7 @@ class UserCard extends Component {
     return (
       <>
         <User {...this.props} />
+        <h3>Followers</h3>
         <Followers user_followers={this.props.user_followers} />
       </>
     );
