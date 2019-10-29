@@ -8,12 +8,17 @@ class App extends Component {
   state = { user: {} };
 
   componentDidMount() {
-    axios
-      .get(`https://api.github.com/users/mark-halls`)
-      .then(res => {
+    Promise.all([
+      axios.get(`https://api.github.com/users/mark-halls`),
+      axios.get(`https://api.github.com/users/mark-halls/followers`)
+    ])
+      .then(([res1, res2]) => {
         this.setState(
           {
-            user: res.data
+            user: {
+              ...res1.data,
+              user_followers: res2.data
+            }
           },
           () => console.log(this.state)
         );
